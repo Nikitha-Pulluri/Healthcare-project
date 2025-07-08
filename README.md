@@ -134,3 +134,68 @@ The CMS DE-SynPUF dataset includes multiple healthcare-related files that requir
 - Apply **partitioning and clustering** on large tables for performance (e.g., by year, state, or condition)
 
 
+## 👥 Stakeholders & Reporting Objectives
+
+This project serves multiple healthcare and operational teams by transforming raw Medicare claims data into analytics-ready formats and actionable dashboards. Below are the primary stakeholder groups and the reporting insights tailored to each.
+
+---
+
+### 🩺 1. Clinical & Care Management Team
+**Who:** Physicians, nurses, care coordinators, case managers  
+**Reports & Insights:**
+- Chronic condition prevalence (e.g., diabetes, COPD, CHF)
+- Readmission rates by condition, age, and facility
+- Length of stay metrics and DRG distribution
+- High-risk patient identification (multiple comorbidities, frequent visits)
+
+> 🎯 *Support clinical decision-making, improve patient care planning, and reduce avoidable admissions.*
+
+---
+
+### 💰 2. Finance & Reimbursement Team
+**Who:** Financial analysts, CFOs, billing departments  
+**Reports & Insights:**
+- Total and average claim costs per beneficiary and per DRG
+- Medicare vs. patient payment contributions
+- Trends in prescription drug costs
+- Provider-level reimbursement summaries
+
+> 🎯 *Track cost efficiency, detect outliers, and optimize reimbursement strategies.*
+
+---
+
+### 🛡️ 3. Insurance & Payer Relations Team
+**Who:** Payers, claims processing teams, policy analysts  
+**Reports & Insights:**
+- Claims volume and approval/denial ratios
+- High-cost claims and patients over time
+- Cost breakdowns by Part A, B, and D coverage
+- Yearly utilization vs. payment trend analysis
+
+> 🎯 *Improve payer negotiations, manage claim patterns, and ensure fair cost distribution.*
+
+---
+
+### 📊 4. Executive Leadership
+**Who:** CXOs, VPs, board members, strategic leadership  
+**Reports & Insights:**
+- KPI dashboards (e.g., average claim cost, chronic condition burden)
+- Cost and utilization trends across years and geographies
+- Top facilities and services driving healthcare spend
+- Compliance and policy impact metrics
+
+> 🎯 *Guide high-level planning, investments, and policy decisions.*
+
+---
+
+### 🧪 5. Data Governance & Compliance Team
+**Who:** Data stewards, audit officers, compliance leads  
+**Reports & Insights:**
+- Data quality and validation logs
+- Schema conformance and referential integrity checks
+- Missing or invalid claim counts
+- Access tracking and security compliance logs
+
+> 🎯 *Ensure data accuracy, regulatory compliance (HIPAA), and audit-readiness.*
+
+---
