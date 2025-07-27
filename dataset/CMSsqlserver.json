@@ -1,0 +1,586 @@
+{
+	"name": "CMSsqlserver",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CMS healthcare linked services",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "DESYNPUF_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CLM_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CLM_FROM_DT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CLM_THRU_DT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ICD9_DGNS_CD_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ICD9_DGNS_CD_2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ICD9_DGNS_CD_3",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ICD9_DGNS_CD_4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ICD9_DGNS_CD_5",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ICD9_DGNS_CD_6",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ICD9_DGNS_CD_7",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ICD9_DGNS_CD_8",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRF_PHYSN_NPI_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRF_PHYSN_NPI_2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRF_PHYSN_NPI_3",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRF_PHYSN_NPI_4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRF_PHYSN_NPI_5",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRF_PHYSN_NPI_6",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRF_PHYSN_NPI_7",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRF_PHYSN_NPI_8",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRF_PHYSN_NPI_9",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRF_PHYSN_NPI_10",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRF_PHYSN_NPI_11",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRF_PHYSN_NPI_12",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRF_PHYSN_NPI_13",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TAX_NUM_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TAX_NUM_2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TAX_NUM_3",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TAX_NUM_4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TAX_NUM_5",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TAX_NUM_6",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TAX_NUM_7",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TAX_NUM_8",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TAX_NUM_9",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TAX_NUM_10",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TAX_NUM_11",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TAX_NUM_12",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TAX_NUM_13",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HCPCS_CD_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HCPCS_CD_2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HCPCS_CD_3",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HCPCS_CD_4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HCPCS_CD_5",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HCPCS_CD_6",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HCPCS_CD_7",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HCPCS_CD_8",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HCPCS_CD_9",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HCPCS_CD_10",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HCPCS_CD_11",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HCPCS_CD_12",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HCPCS_CD_13",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_NCH_PMT_AMT_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_NCH_PMT_AMT_2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_NCH_PMT_AMT_3",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_NCH_PMT_AMT_4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_NCH_PMT_AMT_5",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_NCH_PMT_AMT_6",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_NCH_PMT_AMT_7",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_NCH_PMT_AMT_8",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_NCH_PMT_AMT_9",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_NCH_PMT_AMT_10",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_NCH_PMT_AMT_11",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_NCH_PMT_AMT_12",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_NCH_PMT_AMT_13",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PTB_DDCTBL_AMT_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PTB_DDCTBL_AMT_2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PTB_DDCTBL_AMT_3",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PTB_DDCTBL_AMT_4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PTB_DDCTBL_AMT_5",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PTB_DDCTBL_AMT_6",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PTB_DDCTBL_AMT_7",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PTB_DDCTBL_AMT_8",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PTB_DDCTBL_AMT_9",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PTB_DDCTBL_AMT_10",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PTB_DDCTBL_AMT_11",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PTB_DDCTBL_AMT_12",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PTB_DDCTBL_AMT_13",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PRMRY_PYR_PD_AMT_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PRMRY_PYR_PD_AMT_2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PRMRY_PYR_PD_AMT_3",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PRMRY_PYR_PD_AMT_4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PRMRY_PYR_PD_AMT_5",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PRMRY_PYR_PD_AMT_6",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PRMRY_PYR_PD_AMT_7",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PRMRY_PYR_PD_AMT_8",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PRMRY_PYR_PD_AMT_9",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PRMRY_PYR_PD_AMT_10",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PRMRY_PYR_PD_AMT_11",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PRMRY_PYR_PD_AMT_12",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_BENE_PRMRY_PYR_PD_AMT_13",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_COINSRNC_AMT_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_COINSRNC_AMT_2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_COINSRNC_AMT_3",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_COINSRNC_AMT_4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_COINSRNC_AMT_5",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_COINSRNC_AMT_6",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_COINSRNC_AMT_7",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_COINSRNC_AMT_8",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_COINSRNC_AMT_9",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_COINSRNC_AMT_10",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_COINSRNC_AMT_11",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_COINSRNC_AMT_12",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_COINSRNC_AMT_13",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ALOWD_CHRG_AMT_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ALOWD_CHRG_AMT_2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ALOWD_CHRG_AMT_3",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ALOWD_CHRG_AMT_4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ALOWD_CHRG_AMT_5",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ALOWD_CHRG_AMT_6",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ALOWD_CHRG_AMT_7",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ALOWD_CHRG_AMT_8",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ALOWD_CHRG_AMT_9",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ALOWD_CHRG_AMT_10",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ALOWD_CHRG_AMT_11",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ALOWD_CHRG_AMT_12",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ALOWD_CHRG_AMT_13",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_PRCSG_IND_CD_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_PRCSG_IND_CD_2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_PRCSG_IND_CD_3",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_PRCSG_IND_CD_4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_PRCSG_IND_CD_5",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_PRCSG_IND_CD_6",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_PRCSG_IND_CD_7",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_PRCSG_IND_CD_8",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_PRCSG_IND_CD_9",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_PRCSG_IND_CD_10",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_PRCSG_IND_CD_11",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_PRCSG_IND_CD_12",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_PRCSG_IND_CD_13",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ICD9_DGNS_CD_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ICD9_DGNS_CD_2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ICD9_DGNS_CD_3",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ICD9_DGNS_CD_4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ICD9_DGNS_CD_5",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ICD9_DGNS_CD_6",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ICD9_DGNS_CD_7",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ICD9_DGNS_CD_8",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ICD9_DGNS_CD_9",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ICD9_DGNS_CD_10",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ICD9_DGNS_CD_11",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ICD9_DGNS_CD_12",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LINE_ICD9_DGNS_CD_13",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "CarrierClaimsMerged"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
