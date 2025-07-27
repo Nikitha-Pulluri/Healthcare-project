@@ -1,0 +1,9 @@
+{
+	"name": "CMShealthcaredf",
+	"location": "westus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e6cbac85-bd77-4df0-91ba-103706e45323",
+		"tenantId": "3446715d-0c6c-4070-9dce-52ade7c415fb"
+	}
+}
