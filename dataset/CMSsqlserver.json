@@ -584,7 +584,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "Prescription_Drug_Events"
+			"table": "@dataset().tableName"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
