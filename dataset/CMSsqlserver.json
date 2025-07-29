@@ -5,6 +5,11 @@
 			"referenceName": "CMS healthcare linked services",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"tableName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": [
@@ -576,7 +581,11 @@
 				"name": "LINE_ICD9_DGNS_CD_13",
 				"type": "nvarchar"
 			}
-		]
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Outpatient_Claims"
+		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
 }
