@@ -42,7 +42,10 @@
 				"inputs": [
 					{
 						"referenceName": "CMSsqlserver",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"tableName": "Prescription_Drug_Events"
+						}
 					}
 				],
 				"outputs": [
@@ -51,7 +54,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"folderName": "pde",
-							"fileName": "Prescription_Drug_Events.csv"
+							"fileName": "Prescription_Drug_Events.parquet"
 						}
 					}
 				]

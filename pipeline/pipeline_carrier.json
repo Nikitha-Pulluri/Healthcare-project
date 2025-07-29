@@ -42,7 +42,10 @@
 				"inputs": [
 					{
 						"referenceName": "CMSsqlserver",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"tableName": "carrier_claims"
+						}
 					}
 				],
 				"outputs": [
@@ -51,7 +54,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"folderName": "carrier",
-							"fileName": "carrier_claims.csv"
+							"fileName": "carrier_claims.parquet"
 						}
 					}
 				]

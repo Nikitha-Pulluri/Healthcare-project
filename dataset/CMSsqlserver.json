@@ -584,7 +584,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "Inpatient_Claims"
+			"table": "Prescription_Drug_Events"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
