@@ -42,7 +42,10 @@
 				"inputs": [
 					{
 						"referenceName": "CMSsqlserver",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"tableName": "outpatient_claims"
+						}
 					}
 				],
 				"outputs": [
@@ -51,7 +54,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"folderName": "outpatient",
-							"fileName": "outpatient_claims.csv"
+							"fileName": "outpatient_claims.parquet"
 						}
 					}
 				]

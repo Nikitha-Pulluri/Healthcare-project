@@ -54,7 +54,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"folderName": "inpatient",
-							"fileName": "inpatient_claims.csv"
+							"fileName": "inpatient_claims.parquet"
 						}
 					}
 				]

@@ -584,7 +584,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "Outpatient_Claims"
+			"table": "Inpatient_Claims"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
