@@ -6,10 +6,10 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"SchemaName": {
+			"folderName": {
 				"type": "string"
 			},
-			"TableName": {
+			"fileName": {
 				"type": "string"
 			}
 		},
@@ -18,10 +18,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": {
-					"value": "@{concat(dataset().SchemaName, '/', dataset().TableName)}",
-					"type": "Expression"
-				},
+				"fileName": "@dataset().fileName",
+				"folderPath": "@dataset().folderName",
 				"fileSystem": "bronze"
 			},
 			"compressionCodec": "snappy"
