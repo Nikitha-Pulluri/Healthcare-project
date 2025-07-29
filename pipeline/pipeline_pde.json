@@ -1,9 +1,9 @@
 {
-	"name": "pipeline_carrier",
+	"name": "pipeline_pde",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_carrier_data",
+				"name": "Copy_pde_data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -50,8 +50,8 @@
 						"referenceName": "CMSdatasink",
 						"type": "DatasetReference",
 						"parameters": {
-							"folderName": "carrier",
-							"fileName": "carrier_claims.csv"
+							"folderName": "pde",
+							"fileName": "Prescription_Drug_Events.csv"
 						}
 					}
 				]

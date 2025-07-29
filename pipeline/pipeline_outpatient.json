@@ -1,9 +1,9 @@
 {
-	"name": "pipeline_carrier",
+	"name": "pipeline_outpatient",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_carrier_data",
+				"name": "Copy_outpatient_data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -50,8 +50,8 @@
 						"referenceName": "CMSdatasink",
 						"type": "DatasetReference",
 						"parameters": {
-							"folderName": "carrier",
-							"fileName": "carrier_claims.csv"
+							"folderName": "outpatient",
+							"fileName": "outpatient_claims.csv"
 						}
 					}
 				]
