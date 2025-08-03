@@ -85,6 +85,33 @@
 					"referenceName": "AzureDatabricksLinkedservices",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "carrier silver to gold",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "carrier bronze to silver",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/npulluri26@gmail.com/carrier silver to gold"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricksLinkedservices",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
