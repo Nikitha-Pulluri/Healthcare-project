@@ -156,9 +156,25 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@activity('Get Metadata1').output.exists\n",
+						"value": "@activity('Get Metadata').output.exists\n",
 						"type": "Expression"
 					},
+					"ifFalseActivities": [
+						{
+							"name": "Set No File Found",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "file_status",
+								"value": "\"carrier file not found\""
+							}
+						}
+					],
 					"ifTrueActivities": [
 						{
 							"name": "Copy_carrier_data_copy1",
@@ -275,6 +291,11 @@
 				}
 			}
 		],
+		"variables": {
+			"file_status": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
