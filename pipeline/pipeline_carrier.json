@@ -3,117 +3,6 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_carrier_data",
-				"type": "Copy",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "SqlServerSource",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
-					},
-					"sink": {
-						"type": "ParquetSink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						},
-						"formatSettings": {
-							"type": "ParquetWriteSettings"
-						}
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "CMSsqlserver",
-						"type": "DatasetReference",
-						"parameters": {
-							"tableName": "carrier_claims"
-						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "CMSdatasink",
-						"type": "DatasetReference",
-						"parameters": {
-							"folderName": "carrier",
-							"fileName": "carrier_claims.parquet"
-						}
-					}
-				]
-			},
-			{
-				"name": "carrier bronze to silver",
-				"type": "DatabricksNotebook",
-				"dependsOn": [
-					{
-						"activity": "Copy_carrier_data",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"notebookPath": "/Users/npulluri26@gmail.com/carrier bronze to silver"
-				},
-				"linkedServiceName": {
-					"referenceName": "AzureDatabricksLinkedservices",
-					"type": "LinkedServiceReference"
-				}
-			},
-			{
-				"name": "carrier silver to gold",
-				"type": "DatabricksNotebook",
-				"dependsOn": [
-					{
-						"activity": "carrier bronze to silver",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"notebookPath": "/Users/npulluri26@gmail.com/carrier silver to gold"
-				},
-				"linkedServiceName": {
-					"referenceName": "AzureDatabricksLinkedservices",
-					"type": "LinkedServiceReference"
-				}
-			},
-			{
 				"name": "Get Metadata",
 				"type": "GetMetadata",
 				"dependsOn": [],
@@ -288,6 +177,64 @@
 							}
 						}
 					]
+				}
+			},
+			{
+				"name": "Notify_Success",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "If Condition1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://webhook.site/fba82211-ac34-4373-8ad8-ae04888f4caa",
+					"body": {
+						"status": "Success",
+						"pipeline": "pipeline_carrier",
+						"message": "Pipeline completed successfully"
+					}
+				}
+			},
+			{
+				"name": "Notify_Failure",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "If Condition1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://webhook.site/fba82211-ac34-4373-8ad8-ae04888f4caa",
+					"body": {
+						"status": "Failure",
+						"pipeline": "pipeline_carrier",
+						"message": "Pipeline failed"
+					}
 				}
 			}
 		],
