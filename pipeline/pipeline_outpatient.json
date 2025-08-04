@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_outpatient_data",
-				"type": "Copy",
+				"name": "Get Metadata",
+				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -15,83 +15,177 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"source": {
-						"type": "SqlServerSource",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
+					"dataset": {
+						"referenceName": "getmetadata",
+						"type": "DatasetReference"
 					},
-					"sink": {
-						"type": "ParquetSink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						},
-						"formatSettings": {
-							"type": "ParquetWriteSettings"
-						}
+					"fieldList": [
+						"exists"
+					],
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
+						"enablePartitionDiscovery": false
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
 					}
-				},
-				"inputs": [
-					{
-						"referenceName": "CMSsqlserver",
-						"type": "DatasetReference",
-						"parameters": {
-							"tableName": "outpatient_claims"
-						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "CMSdatasink",
-						"type": "DatasetReference",
-						"parameters": {
-							"folderName": "outpatient",
-							"fileName": "outpatient_claims.parquet"
-						}
-					}
-				]
-			},
-			{
-				"name": "outpatient bronze to silver",
-				"type": "DatabricksNotebook",
-				"dependsOn": [
-					{
-						"activity": "Copy_outpatient_data",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"notebookPath": "/Users/npulluri26@gmail.com/outpatient bronze to silver"
-				},
-				"linkedServiceName": {
-					"referenceName": "AzureDatabricksLinkedservices",
-					"type": "LinkedServiceReference"
 				}
 			},
 			{
-				"name": "outpatient silver to gold",
-				"type": "DatabricksNotebook",
+				"name": "If Condition1",
+				"type": "IfCondition",
 				"dependsOn": [
 					{
-						"activity": "outpatient bronze to silver",
+						"activity": "Get Metadata",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@activity('Get Metadata').output.exists\n",
+						"type": "Expression"
+					},
+					"ifFalseActivities": [
+						{
+							"name": "Set No File Found",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "file_status",
+								"value": "\"carrier file not found\""
+							}
+						}
+					],
+					"ifTrueActivities": [
+						{
+							"name": "Copy_outpatient_data_copy1",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "SqlServerSource",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "ParquetSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "ParquetWriteSettings"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "CMSsqlserver",
+									"type": "DatasetReference",
+									"parameters": {
+										"tableName": "outpatient_claims"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "CMSdatasink",
+									"type": "DatasetReference",
+									"parameters": {
+										"folderName": "outpatient",
+										"fileName": "outpatient_claims.parquet"
+									}
+								}
+							]
+						},
+						{
+							"name": "outpatient bronze to silver_copy1",
+							"type": "DatabricksNotebook",
+							"dependsOn": [
+								{
+									"activity": "Copy_outpatient_data_copy1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"notebookPath": "/Users/npulluri26@gmail.com/outpatient bronze to silver"
+							},
+							"linkedServiceName": {
+								"referenceName": "AzureDatabricksLinkedservices",
+								"type": "LinkedServiceReference"
+							}
+						},
+						{
+							"name": "outpatient silver to gold_copy1",
+							"type": "DatabricksNotebook",
+							"dependsOn": [
+								{
+									"activity": "outpatient bronze to silver_copy1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"notebookPath": "/Users/npulluri26@gmail.com/outpatient silver to gold"
+							},
+							"linkedServiceName": {
+								"referenceName": "AzureDatabricksLinkedservices",
+								"type": "LinkedServiceReference"
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "Notify_Success",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "If Condition1",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -106,14 +200,50 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/npulluri26@gmail.com/outpatient silver to gold"
+					"method": "POST",
+					"url": "https://webhook.site/fba82211-ac34-4373-8ad8-ae04888f4caa",
+					"body": {
+						"status": "Success",
+						"pipeline": "pipeline_carrier",
+						"message": "Pipeline completed successfully"
+					}
+				}
+			},
+			{
+				"name": "Notify_Failure",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "If Condition1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
 				},
-				"linkedServiceName": {
-					"referenceName": "AzureDatabricksLinkedservices",
-					"type": "LinkedServiceReference"
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://webhook.site/fba82211-ac34-4373-8ad8-ae04888f4caa",
+					"body": {
+						"status": "Failure",
+						"pipeline": "pipeline_carrier",
+						"message": "Pipeline failed"
+					}
 				}
 			}
 		],
+		"variables": {
+			"file_status": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
